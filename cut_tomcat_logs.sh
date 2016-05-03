@@ -22,3 +22,4 @@ tar czf ${LOG_DIR}/archive-logs/catalina.`date  +%F`.out.tgz ${PRJ_HOME}/logs/ca
 
 mv ${PRJ_HOME}/logs/66cf.`date -d  +%F`.log.zip ${LOG_DIR}/archive-logs/
 
+echo "Backup logs Successful to ${LOG_DIR}/archive-logs/"
