@@ -2,7 +2,10 @@
 #
 #this is a install apache-tomcat script
 #
+#Only adapted version before centos7
+#
 # edit by jtxiao 2016-7-4
+#
 
 #INSTALL JAVA ENV
 
