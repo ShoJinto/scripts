@@ -29,6 +29,8 @@ curl -O ddns.defshare.cn:18080/softs/apache-tomcat-8.0.32.tar.gz
 
 tar xf apache-tomcat-8.0.32.tar.gz -C /usr/local
 
+rm -rf /usr/local/apache-tomcat-8.0.32/webapps/*
+
 cd /usr/local/apache-tomcat-8.0.32/bin
 tar	xf commons-daemon-native.tar.gz
 cd commons-daemon-1.0.15-native-src/unix
