@@ -35,10 +35,10 @@ rm -rf /usr/local/apache-tomcat-8.0.32/webapps/*
 
 curl -o /usr/local/apache-tomcat-8.0.32/webapps/ROOT.war http://ftp.yz.yamagata-u.ac.jp/pub/misc/jenkins/war-stable/1.651.3/jenkins.war
 sed -i '24i\<Environment name="JENKINS_HOME" value="${catalina.base}/webapps/jenkins" type="java.lang.String" />' \
-/usr/local/apache-tomcat-8.0.18/conf/context.xml
+/usr/local/apache-tomcat-8.0.32/conf/context.xml
 
 adduser -r -s /sbin/nologin tomcat
-chown tomcat.tomcat -R /usr/local/apache-tomcat-8.0.18
+chown tomcat.tomcat -R /usr/local/apache-tomcat-8.0.32
 
 #INSTALL SUPERVISOR
 
@@ -62,8 +62,8 @@ supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
 [supervisorctl]
 serverurl=unix:///tmp/supervisor.sock ; use a unix:// URL  for a unix socket
 [program:tomcat_monitor]
-command=/usr/local/apache-tomcat-8.0.18/bin/catalina.sh  run             ; the program (relative uses PATH, can take args)
-directory=/usr/local/apache-tomcat-8.0.18/webapps                ; directory to cwd to before exec (def no cwd)
+command=/usr/local/apache-tomcat-8.0.32/bin/catalina.sh  run             ; the program (relative uses PATH, can take args)
+directory=/usr/local/apache-tomcat-8.0.32/webapps                ; directory to cwd to before exec (def no cwd)
 user=tomcat                  ; setuid to this UNIX account to run the program
 redirect_stderr=true          ; redirect proc stderr to stdout (default false)
 EOF
