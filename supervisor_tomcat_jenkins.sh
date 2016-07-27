@@ -34,7 +34,7 @@ rm -rf /usr/local/apache-tomcat-8.0.32/webapps/*
 #DOWNLOAD jenkins.war
 
 curl -o /usr/local/apache-tomcat-8.0.32/webapps/ROOT.war http://ftp.yz.yamagata-u.ac.jp/pub/misc/jenkins/war-stable/1.651.3/jenkins.war
-sed -i '24i\<Environment name="JENKINS_HOME" value="${catalina.base}/webapps/jenkins" type="java.lang.String" />' \
+sed -i '24i\\ \ \ \ <Environment name="JENKINS_HOME" value="${catalina.base}/webapps/jenkins" type="java.lang.String" />' \
 /usr/local/apache-tomcat-8.0.32/conf/context.xml
 
 adduser -r -s /sbin/nologin tomcat
