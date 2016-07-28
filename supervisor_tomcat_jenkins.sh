@@ -66,6 +66,7 @@ command=/usr/local/apache-tomcat-8.0.32/bin/catalina.sh  run             ; the p
 directory=/usr/local/apache-tomcat-8.0.32/webapps                ; directory to cwd to before exec (def no cwd)
 user=tomcat                  ; setuid to this UNIX account to run the program
 redirect_stderr=true          ; redirect proc stderr to stdout (default false)
+stdout_logfile=/usr/local/apache-tomcat-8.0.18/logs/catalina.out
 EOF
 echo 'supervisord -c /etc/supervisord.conf' >> /etc/rc.local
 
