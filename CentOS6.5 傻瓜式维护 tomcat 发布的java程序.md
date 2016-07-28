@@ -98,7 +98,6 @@ sz safeguard-`date +%F`.sql
 rz 
 mysql -u root -p [Enter]
 :<yourpassword>
-
 mysql> use safeguard;
 mysql> source yourscrpit.sql;
 ```
