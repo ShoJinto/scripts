@@ -21,8 +21,9 @@ yum  install ncurses-devel
 cmake .
 make && make install
 useradd -r -s /sbin/nologin mysql
+cd /usr/local/mysql
 chown mysql.mysql -R .
-cp support-files/my-small.cnf /etc/my.cnf
+cp support-files/my-default.cnf /etc/my.cnf
 cp support-files/mysql.server /etc/init.d/mysqld
 mysql -H scripts/mysql_install_db --user=mysql
 ln -s `pwd`/bin/* /usr/sbin/
