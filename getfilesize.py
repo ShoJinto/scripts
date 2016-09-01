@@ -61,8 +61,25 @@ def getfile_size(specify_dir, specify_size):
 
     :rtype : object
     """
+    commands = [] #定义一个执行命令的列表，用于给多线程喂数据
+    p = multiprocessing.Pool(processes=5)
     for file_items in os.walk(specify_dir):
-        countSize(file_items[0], file_items[2], specify_size)
+        # print file_items[0], len(file_items[2])
+        # if len(file_items[2]) == 0: continue
+        # p = multiprocessing.Pool(processes=len(file_items[2])) #动态设置线程池大小，本程序中bug。还是改成固定线程较好
+                                         ##线程池在本程序中有问题，还是使用常规的多线程
+                                         ##多线程不是任何情况都适用的，根据自己的需要而定
+        commands.append(p.apply_async(countSize, (file_items[0], file_items[2], specify_size,)))
+
+    p.close()
+
+    for cmd in commands: #执行多线程命令
+        cmd.get(timeout = 3)
+
+    #非线程池实现方式
+    # for file_items in os.walk(specify_dir):
+    #     p = multiprocessing.Process(target=countSize,args=(file_items[0], file_items[2], specify_size,))
+    #     p.start()
 
 
 if __name__ == "__main__":
