@@ -1,5 +1,5 @@
 # --*-- coding:utf8 --*--
-# !/usr/bin/env python
+#!/usr/bin/env python
 #
 
 import os
@@ -84,7 +84,7 @@ def getfile_size(specify_dir, specify_size):
 
 if __name__ == "__main__":
     try:
-        workdir = os.path.dirname(argv[1])
+        workdir = os.path.join(os.path.dirname(argv[1]),os.path.basename(argv[1]))
         if len(argv) == 2:
             getfile_size(workdir, 200)
         elif len(argv) == 3:
